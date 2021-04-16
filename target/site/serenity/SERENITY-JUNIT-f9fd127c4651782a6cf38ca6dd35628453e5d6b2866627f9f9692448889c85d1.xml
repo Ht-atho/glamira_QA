@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Packagereadyshipping" skipped="0" tests="3" time="161.76" timestamp="2021-03-26T13:32:17.269751493+07:00[Asia/Ho_Chi_Minh]"><testcase name="create ship successfully"/><testcase name="create ship when don't choose item"/><testcase name="click cancel"/></testsuite>
