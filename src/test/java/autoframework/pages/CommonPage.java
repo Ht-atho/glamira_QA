@@ -174,6 +174,8 @@ public class CommonPage extends PageObject {
         }
         getDriver().get(urlInPro);
         System.out.println("go to the " + urlInPro);
+//        Alert alert = driver.switchTo().alert();
+//        alert.accept();
 
     }
     public void checkURl(String expectUrl)  {

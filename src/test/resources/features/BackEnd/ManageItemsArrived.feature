@@ -1,9 +1,9 @@
 Feature:
   Background:
     Given Go to "adminPage" url
+#  2nd way to login
     When Insert adminM2 into box have id: emailAdmin
     And Insert admin123 into box have id: passAdmin
-#    wait Lan's login admin
     And Click button by class signInBtn
     Then Successfully into DashboardPage front site
     Given Go to "ManageItemsArrivedStep" url

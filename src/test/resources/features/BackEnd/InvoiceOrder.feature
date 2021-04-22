@@ -2,7 +2,7 @@
 Feature: InvoiceOrder
   Background:
     Given go to the admin "adminPage"
-    When I login to admin with valid username and password
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
     Then I should  be on Admin Porfile pages
   @Test
   @tag-01

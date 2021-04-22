@@ -1,7 +1,7 @@
 Feature: promotion campaign
 
   Scenario: discount on all products
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
     And Go to "cartPriceRule"
     When Create a "percent" discount rule
     And Go to "itemDetail"

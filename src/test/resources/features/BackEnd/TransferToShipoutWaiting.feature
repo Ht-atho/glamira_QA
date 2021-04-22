@@ -1,7 +1,7 @@
 Feature: Transfer to ship out waiting
 
   Background: login to admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
   Scenario: transfer an item to shipout waiting
     Given Go to "manageProductionRequest"

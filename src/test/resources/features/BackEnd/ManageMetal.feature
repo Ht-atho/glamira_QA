@@ -1,7 +1,7 @@
 Feature: Manage Metal
 
   Background: Login to admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
   Scenario Outline: Add a new metal with a raw material
     Given Go to "mangageMetal"

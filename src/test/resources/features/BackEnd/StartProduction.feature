@@ -1,7 +1,7 @@
 Feature: start a production
 
   Background: login to admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
   Scenario: start a production in Manage production requests grid suceessfully
     Given Go to "manageProductionRequest"

@@ -13,10 +13,6 @@ public class CartPriceRulePage extends CommonPageL {
     String saveBtnLocator = "button#save";
     String discardSubsequentRules = "div[data-index=\"stop_rules_processing\"] div.admin__actions-switch";
 
-
-
-
-
     public void createADiscountRule(String arg0) {
         click(addBtnLocator);
         insertIntoField("testDiscount",nameLocator);
@@ -25,9 +21,5 @@ public class CartPriceRulePage extends CommonPageL {
         insertIntoField(arg0,discountAmountLocator);
         scrollToAndClick(discardSubsequentRules);
         click(saveBtnLocator);
-
-
-
-
     }
 }

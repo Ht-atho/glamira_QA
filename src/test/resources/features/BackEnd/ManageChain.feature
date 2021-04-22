@@ -1,7 +1,7 @@
 Feature: Manage Chain
 
   Background: login in admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
   Scenario Outline: Add new chain
     Given Go to "manageChain"

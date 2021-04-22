@@ -1,7 +1,7 @@
 Feature: Manage Raw Material
 
   Background: Login in admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
   Scenario Outline: Add a new raw material
     Given Go to "rawMaterialPage"

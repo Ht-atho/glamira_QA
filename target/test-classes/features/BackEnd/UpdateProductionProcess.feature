@@ -7,10 +7,10 @@ Feature: Update production process
   @updateFromCasting
   Scenario: Update process from Casting
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Click on Take in button
     Then The "successfulSave" Message is shown
-    And Input "barcode" to the barcode box
+    And Input "updateProcessBarcode" to the barcode box
     And Input "castingWeight" to the weight box
     And Select the "staff"
     And Click on Take off button
@@ -19,7 +19,7 @@ Feature: Update production process
   @updateFromLathe
   Scenario: Update process from Lathe to CNC machine
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "latheWeight" to the weight box
     And Click on To CNC Machine button
     Then The "successfulSave" Message is shown
@@ -27,7 +27,7 @@ Feature: Update production process
   @updateFromCNCMachineToWeddingManufacturer
   Scenario: Update process from CNC machine to wedding manufacturer
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "CNCMachineWeight" to the weight box
     And Input "steelWeight" to the steel weight box
     And Select the "staff"
@@ -37,7 +37,7 @@ Feature: Update production process
   @updateFromWeddingManufacturerToQualifyControl
   Scenario: Update process from wedding manufacturer to qualify control
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "weight" to the weight box
     And Input "stoneWeight" to the stone weight box
 #    And Input "semiWeight" to the semi weight box
@@ -50,7 +50,7 @@ Feature: Update production process
   @updateFromCNCMachineToPolishing
   Scenario: Update process from CNC machine to polishing
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "CNCMachineWeight" to the weight box
     And Input "steelWeight" to the steel weight box
     And Select the "staff"
@@ -60,7 +60,7 @@ Feature: Update production process
   @updateFromPolishing
   Scenario: Update process from polishing to polishing finished
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "polishingWeight" to the weight box
 #    And Input "semiWeight" to the semi weight box
     And Select the "staff"
@@ -71,7 +71,7 @@ Feature: Update production process
   @updateFromPolishingFinished
   Scenario: Update process from polishing finished
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "weight" to the weight box
 #    And Input "semiWeight" to the semi weight box
     And Select the "staff"
@@ -81,7 +81,7 @@ Feature: Update production process
   @updateFromEngraving
   Scenario: Update process from engraving
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "weight" to the weight box
 #    And Input "semiWeight" to the semi weight box
     And Select the "staff"
@@ -91,7 +91,7 @@ Feature: Update production process
   @updateFromQualityControlToFinished
   Scenario: Update process from quality control to finished
     Given Go to "updateProductionProcess"
-    When Input "barcode" to the barcode box
+    When Input "updateProcessBarcode" to the barcode box
     And Input "weight" to the weight box
 #    And Input "semiWeight" to the semi weight box
     And Select the "staff"
