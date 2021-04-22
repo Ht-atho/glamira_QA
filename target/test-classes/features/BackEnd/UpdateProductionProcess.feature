@@ -1,7 +1,7 @@
 Feature: Update production process
 
   Background: login to admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 #  ------------------- Glamira Weddings---------------------------------
   @GlamiraWeddings
   @updateFromCasting

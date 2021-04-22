@@ -1,7 +1,7 @@
 Feature: Update degree code
 
   Background: Login in backend
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
   @updateSuccessfully
   Scenario: Update degree code successfully

@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="As a user, I write a demo script" skipped="0" tests="1" time="25.3" timestamp="2021-03-26T09:43:15.631108024+07:00[Asia/Ho_Chi_Minh]"><testcase name="go to sign in/ sign up page"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="As a user, I write a demo script" skipped="1" tests="1" time="0.31" timestamp="2021-04-22T17:48:33.280+07:00[Asia/Ho_Chi_Minh]"><testcase name="go to sign in/ sign up page"><skipped/></testcase></testsuite>

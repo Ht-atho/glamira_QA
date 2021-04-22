@@ -34,9 +34,9 @@ public class CartPageStepdefs {
         cartPage.theCurrentQuantityIs(expectedQty);
     }
 
-    @And("^input \"([^\"]*)\"$")
-    public void input(String arg0) throws Throwable {
-        cartPage.input(arg0);
+    @And("^input \"([^\"]*)\" to change quantity of product in cart")
+    public void changeQuatityInCart(String qty) throws Throwable {
+        cartPage.changeQuatityInCart(qty);
     }
 
     @Then("^The subTotalPrice is \"([^\"]*)\"$")

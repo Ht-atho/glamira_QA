@@ -1,6 +1,5 @@
 package autoframework.steps.backEnd;
 
-//import autoTest.pages.backEnd.ProductionRequestPage;
 import autoframework.pages.backEnd.ProductionRequestPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
@@ -18,26 +17,21 @@ public class ProductionRequestStepdefs {
         productionRequestPage.takeActionStartProduction();
 
     }
-//    @Then("^The \"([^\"]*)\" Message is shown$")
-//    public void theMessageIsShown(String message) throws Throwable {
-//        productionRequestEndUserSteps.theMessageIsShown(message);
-//    }
 
     @And("^Click on Create for in stock items button$")
     public void clickOnCreateForInStockItemsButton() {
         productionRequestPage.clickOnCreateForInStockItemsButton();
-
     }
 
 
 
     @And("^Input information \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" then click Save$")
-    public void inputInformationThenClickSave(String itemQty, String itemSKU, String itemName, String price) throws Throwable {
+    public void inputInformationThenClickSave(String itemQty, String itemSKU, String itemName, String price){
         productionRequestPage.inputInformationThenClickSave(itemQty, itemSKU, itemName, price);
     }
 
     @When("^Enter \"([^\"]*)\" to scan barcode box$")
-    public void enterToScanBarcodeBox(String barcode) throws Throwable {
+    public void enterToScanBarcodeBox(String barcode){
         productionRequestPage.enterToScanBarcodeBox(barcode);
     }
 
@@ -47,7 +41,7 @@ public class ProductionRequestStepdefs {
     }
 
     @And("^Take action \"([^\"]*)\"$")
-    public void takeAction(String action) throws Throwable {
+    public void takeAction(String action) {
         productionRequestPage.takeAction(action);
     }
 }

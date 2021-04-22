@@ -1,1 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Checkout without login" skipped="0" tests="1" time="88.92" timestamp="2021-03-31T11:01:43.630+07:00[Asia/Ho_Chi_Minh]"><testcase name="Check out without login"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Checkout without login" skipped="0" tests="1" time="22.13" timestamp="2021-04-22T17:55:19.012+07:00[Asia/Ho_Chi_Minh]"><testcase name="Check out without login"><error message="The following error occurred: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.product\-addtocart\-button&quot;}&#10;  (Session info: chrome=89.0.4389.72)&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'&#10;System info: host: 'hoaithanh-OptiPlex-7010', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-72-generic', java.version: '1.8.0_282'&#10;Driver info: org.openqa.selenium.remote.RemoteWebDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.72, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /tmp/.com.google.Chrome.8dRuPl}, goog:chromeOptions: {debuggerAddress: localhost:42815}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: d5832677d46af4c08ff30df96b7cbd0b&#10;*** Element info: {Using=class name, value=product-addtocart-button}&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'&#10;System info: host: 'hoaithanh-OptiPlex-7010', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-72-generic', java.version: '1.8.0_282'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">The following error occurred: no such element: Unable to locate element: {"method":"css selector","selector":".product\-addtocart\-button"}
+  (Session info: chrome=89.0.4389.72)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'hoaithanh-OptiPlex-7010', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-72-generic', java.version: '1.8.0_282'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.72, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /tmp/.com.google.Chrome.8dRuPl}, goog:chromeOptions: {debuggerAddress: localhost:42815}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d5832677d46af4c08ff30df96b7cbd0b
+*** Element info: {Using=class name, value=product-addtocart-button}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'hoaithanh-OptiPlex-7010', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-72-generic', java.version: '1.8.0_282'
+Driver info: driver.version: unknown</error><system-err>The following error occurred: no such element: Unable to locate element: {"method":"css selector","selector":".product\-addtocart\-button"}
+  (Session info: chrome=89.0.4389.72)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'hoaithanh-OptiPlex-7010', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-72-generic', java.version: '1.8.0_282'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.72, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /tmp/.com.google.Chrome.8dRuPl}, goog:chromeOptions: {debuggerAddress: localhost:42815}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d5832677d46af4c08ff30df96b7cbd0b
+*** Element info: {Using=class name, value=product-addtocart-button}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
+System info: host: 'hoaithanh-OptiPlex-7010', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-72-generic', java.version: '1.8.0_282'
+Driver info: driver.version: unknown
+autoframework.pages.CommonPage.clickButtonByclass(CommonPage.java:91)
+autoframework.steps.CommonStepdefs_L.clickOn(CommonStepdefs_L.java:17)
+cucumber.runner.Runner.runPickle(Runner.java:80)
+</system-err></testcase></testsuite>

@@ -8,8 +8,8 @@ public class CartPriceRuleStepdefs {
     @Steps
     CartPriceRulePage cartPriceRulePage;
     @When("^Create a \"([^\"]*)\" discount rule$")
-    public void createADiscountRule(String arg0) throws Throwable {
-        cartPriceRulePage.createADiscountRule(arg0);
+    public void createADiscountRule(String rule) throws Throwable {
+        cartPriceRulePage.createADiscountRule(rule);
     }
 
 }

@@ -2,6 +2,8 @@ Feature: Checkout without login
 
   Scenario: Check out without login
     Given Go to "itemDetail"
+    And Click accept cookie
+
     When Click on "selectSizeButton" then select "selectSize"
     And Click on "addToCart"
 #    And Move on "viewCart" then click on "proceedToCheckout"

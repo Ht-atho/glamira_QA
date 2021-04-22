@@ -15,6 +15,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class CommonPage extends PageObject {
     public static WebDriver driver;
     By msgItem = By.cssSelector(".page.messages");
@@ -37,6 +39,12 @@ public class CommonPage extends PageObject {
         }catch(Exception e){
             return false;
         }
+    }
+    public void loginAdminPageWithAnd(String Page, String account, String password) {
+        this.gotoUrl(Page);
+        insertIntoField(account,"#username");
+        insertIntoField(password,"#login");
+        clickButtonByclass("action-login");
     }
     public void iClickButtonHasText(String buttontext) {
         ArrayList<WebElement> List = new ArrayList<>(getDriver().findElements(By.className("header-panel-right")));
@@ -82,6 +90,8 @@ public class CommonPage extends PageObject {
         }
         WebElement Element = getDriver().findElement(By.className(classElement));
         Element.click();
+        System.out.println("click button has classname: "+classButton);
+
     }
 
     public void waitUntilDisplayButtonHasText(String buttontext) {
@@ -160,7 +170,7 @@ public class CommonPage extends PageObject {
         }
         WebElement Element = getDriver().findElement(By.name(name));
         Element.sendKeys(insertText);
-        System.out.println(" Insert "+ text+ " into " + name);
+        System.out.println(" Insert: "+ text+ ", into field : " + name);
     }
     public void gotoUrl(String url) {
         String urlInPro = TestDataService.properties.getProperty(url);
@@ -201,15 +211,6 @@ public class CommonPage extends PageObject {
     }
 
     public void showErrorMessageForBlankById(String id, String msg) {
-//        String idElement = TestDataService.properties.getProperty(id);
-//        if (idElement == null) {
-//            idElement = id;
-//        }
-//        try {
-//            Thread.sleep(3000);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
         WebElement Element = getDriver().findElement(By.id(id));
         System.out.println("show message: "+ Element.getText());
         Assert.assertEquals(msg,Element.getText());
@@ -237,8 +238,205 @@ public class CommonPage extends PageObject {
             e.printStackTrace();
         }
     }
+    public void click(String button) {
+        System.out.println("check ");
+        String cssSelector = TestDataService.properties.getProperty(button);
+        if (cssSelector == null) {
+            System.out.println("check2");
+            cssSelector = button;
+            System.out.println(cssSelector);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        WebDriverWait waiter = new WebDriverWait(getDriver(), 15);
+        WebElement el = waiter.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
+        el.click();
+        System.out.println("clicked");
+        waitAboutSecond(3);
+    }
+    public void insertIntoField(String text, String fieldName) {
+        String cssSelector = TestDataService.properties.getProperty(fieldName);
+        String inputTxt = TestDataService.properties.getProperty(text);
+        if (cssSelector == null) {
+            cssSelector = fieldName;
+        }
+        if (inputTxt == null) {
+            inputTxt = text;
+        }
+        WebDriverWait wait = new WebDriverWait(getDriver(),15);
+        WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(cssSelector)));
+        el.clear();
+        el.sendKeys(inputTxt);
+//        getDriver().findElement(By.cssSelector(cssSelector)).sendKeys(inputTxt);
+        System.out.println("Insert "+ text + " into "+fieldName);
+    }
+    public void scrollToAndClick(String button) {
+        String cssSelector = TestDataService.properties.getProperty(button);
+        if (cssSelector == null) {
+            cssSelector = button;
+        }
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        WebElement Element = getDriver().findElement(By.cssSelector(cssSelector));
+        JavascriptExecutor jse = (JavascriptExecutor) getDriver();
+        jse.executeScript("arguments[0].scrollIntoView()", Element);
+        Element.click();
+        System.out.println("scroll and click button"+ button);
+    }
+    public void assertMsg (String expectedMsg, String msgLocator){
+        String expectedMess = TestDataService.properties.getProperty(expectedMsg);
+        if (expectedMess == null){
+            expectedMess = expectedMsg;
+        }
+        String msglct = TestDataService.properties.getProperty(msgLocator);
+        if (msglct == null){
+            msglct = msgLocator;
+        }
+        assertEquals(expectedMess, getDriver().findElement(By.cssSelector(msglct)).getText());
+    }
+    public void redirectToLink(String url) {
+        String urlName = TestDataService.properties.getProperty(url);
+        if (urlName == null) {
+            urlName = url;
+        }
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String realUrl = getDriver().getCurrentUrl();
+        assertEquals(urlName, realUrl);
+    }
+    public void selectOption(String element, String selectObject){
+        String elCssSelector = TestDataService.properties.getProperty(element);
+        if (elCssSelector == null) {
+            elCssSelector = element;
+        }
+        String selectedText = TestDataService.properties.getProperty(selectObject);
+        if (selectedText == null) {
+            selectedText = selectObject;
+        }
+        Select selector = new Select(getDriver().findElement(By.cssSelector(elCssSelector)));
+        selector.selectByValue(selectedText);
+        System.out.println("Click on button " + element);
+        System.out.println("Then select " + selectObject);
 
 
+    }
+    public void validateInformation(String element, String expectedInfo) {
+
+        String cssSelector = TestDataService.properties.getProperty(element);
+        if (cssSelector == null){
+            cssSelector = element;
+        }
+        String expectedText = TestDataService.properties.getProperty(expectedInfo);
+        if (expectedText == null) {
+            expectedText = expectedInfo;
+        }
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        WebElement el = getDriver().findElement(By.cssSelector(cssSelector));
+        String actualInfo = el.getText();
+
+
+        if (actualInfo == null) {
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
+            actualInfo = javascriptExecutor.executeScript("return arguments[0].value", el).toString();;
+
+        }
+        System.out.println(el);
+        System.out.println(el.isDisplayed());
+        System.out.println(actualInfo);
+        System.out.println(expectedText);
+        boolean validation = actualInfo.toLowerCase().contains(expectedText.toLowerCase());
+        assertEquals(true, validation);
+
+
+//        assertEquals(expectedText.toLowerCase(), actualInfo.toLowerCase());
+
+
+
+    }
+    public void hoverThenClickOn(String arg0, String arg1) {
+        String elToHoverLocator = TestDataService.properties.getProperty(arg0);
+        if (elToHoverLocator == null) {
+            elToHoverLocator = arg0;
+        }
+        String elToClickLocator = TestDataService.properties.getProperty(arg1);
+        if (elToClickLocator == null) {
+            elToClickLocator = arg1;
+        }
+
+
+        WebElement elToHover = getDriver().findElement(By.cssSelector(elToHoverLocator));
+
+        String javaScript = "var evObj = document.createEvent('MouseEvents');" +
+                "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
+                "arguments[0].dispatchEvent(evObj);";
+
+
+        ((JavascriptExecutor) getDriver()).executeScript(javaScript, elToHover);
+
+        WebElement elToClick = getDriver().findElement(By.cssSelector(elToClickLocator));
+
+
+        ((JavascriptExecutor) getDriver()).executeScript(javaScript, elToClick);
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        elToClick.click();
+
+
+    }
+    public void waitUntilElementDisapear(String arg0) {
+        String elCSSlocator = TestDataService.properties.getProperty(arg0);
+        if (elCSSlocator == null) {
+            elCSSlocator = arg0;
+        }
+        WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(elCSSlocator)));
+        System.out.println("check wait element disapear");
+
+
+    }
+    String theFirstItemLocator = "table.data-grid tbody tr:nth-of-type(1) input";
+    String loadingMaskLocator = "div.loading-mask";
+    String confirmBtnLocator = "div.modal-inner-wrap button.action-accept";
+    String messageLocator = "div.messages div div";
+    public void chooseAnItem() {
+        waitAboutSecond(3);
+        waitUntilElementDisapear(loadingMaskLocator);
+        getDriver().findElement(By.cssSelector(theFirstItemLocator)).click();
+    }
+    public void validateResultMsg(String message) {
+        validateInformation(messageLocator,message);
+    }
+    public void InputText(String text, String element){
+        String orderID = TestDataService.properties.getProperty(text);
+        if (orderID == null) {
+            orderID = text;
+        }
+        String expectedText = TestDataService.properties.getProperty(element);
+        if (expectedText == null) {
+            expectedText = element;
+        }
+        getDriver().findElement(By.xpath(element)).clear();
+
+        getDriver().findElement(By.xpath(element)).sendKeys("\n" + orderID+ Keys.ENTER);
+        waitAboutSecond(10);
+    }
 }
 
 

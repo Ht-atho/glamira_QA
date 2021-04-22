@@ -1,8 +1,7 @@
 Feature: InvoiceOrder
   Background:
     Given go to the admin "adminPage"
-    When I login to admin with valid username and password
-    Then I should  be on Admin Porfile pages
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
     Scenario: Update stone process
       Given  When I click Productions menu

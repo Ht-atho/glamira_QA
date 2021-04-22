@@ -25,44 +25,12 @@ public class CommonPageL extends PageObject {
     String loadingMaskLocator = "div.loading-mask";
     String confirmBtnLocator = "div.modal-inner-wrap button.action-accept";
     String messageLocator = "div.messages div div";
-    String userNameLocator = "#username";
-    String passwordLocator = "#login";
-    String loginBtnLocator = "button.action-login";
 
-
-    public void loginAdminPageWithAnd(String adminPage, String account, String password) {
-        this.gotoUrl(adminPage);
-        insertIntoField(account,userNameLocator);
-        insertIntoField(password,passwordLocator);
-        click(loginBtnLocator);
-
-    }
-
-
-    public void gotoUrl(String urlName) {
-        String url = TestDataService.properties.getProperty(urlName);
-        if (url == null) {
-            url = urlName;
-        }
-        getDriver().get(url);
-        getDriver().manage().window().maximize();
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     public void click(String button) {
-        System.out.println("check ");
         String cssSelector = TestDataService.properties.getProperty(button);
-        //System.out.println("check ");
         if (cssSelector == null) {
-            System.out.println("check2");
             cssSelector = button;
-            System.out.println(cssSelector);
         }
         try {
             Thread.sleep(1000);
@@ -70,13 +38,10 @@ public class CommonPageL extends PageObject {
             e.printStackTrace();
         }
         WebDriverWait waiter = new WebDriverWait(getDriver(), 15);
-//        System.out.println("css " + cssSelector);
         WebElement el = waiter.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssSelector)));
         el.click();
-        System.out.println("clicked");
-        waitAboutSecond(5);
-//        getDriver().findElement(By.cssSelector(cssSelector)).click();
-
+        System.out.println("Click button "+ button);
+        waitAboutSecond(1);
     }
 
     public void waitAboutSecond(int second) {
@@ -185,8 +150,7 @@ public class CommonPageL extends PageObject {
         WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(cssSelector)));
         el.clear();
         el.sendKeys(inputTxt);
-//        getDriver().findElement(By.cssSelector(cssSelector)).sendKeys(inputTxt);
-        System.out.println(text);
+        System.out.println("Insert "+ text+ " into " + fieldName);
     }
     public void enterTextIntoField(String text, String fieldName) {
         String cssSelector = TestDataService.properties.getProperty(fieldName);
@@ -530,16 +494,13 @@ public class CommonPageL extends PageObject {
         }
         WebElement el = getDriver().findElement(By.cssSelector(cssSelector));
         String actualInfo = el.getText();
-
-
         if (actualInfo == null) {
             JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
             actualInfo = javascriptExecutor.executeScript("return arguments[0].value", el).toString();;
 
         }
-        System.out.println(el);
-        System.out.println(el.isDisplayed());
-
+        System.out.println("prices actual is:"+actualInfo);
+        System.out.println("Prices now is:"+ el.isDisplayed());
         assertEquals(expectedText.substring(2), actualInfo.substring(1));
 
 

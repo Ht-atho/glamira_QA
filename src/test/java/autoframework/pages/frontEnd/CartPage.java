@@ -1,17 +1,16 @@
 package autoframework.pages.frontEnd;
 
 import autoframework.pages.CommonPageL;
+import autoframework.service.TestDataService;
 import org.openqa.selenium.By;
 
 public class CartPage extends CommonPageL {
     String sizeBtnLocator = "div.ringsize-select select";
     String addToCartBtnLocator = "#product-addtocart-button";
-    String cartSideBarLocator = "div.product-item-details a";
     String quantityLocator = "td.item div.qty label input";
     String subTotalPriceLocator = "tr.item-info td.subtotal span.price";
     String totalPriceLocator = "tr.totals.grand td.amount span";
     String removeBtnLocator = "tbody.cart:nth-child(3) div.delete";
-    String checkoutBtnLocator = "div.cart-summary button.checkout";
     String discountAmountLocator = "table.totals>tbody tr:nth-of-type(2) td span span";
     String updateShopingBagBtnLocator = "button[value=\"update_qty\"]";
     String pageTitleLocator = "div.page-title h1";
@@ -19,17 +18,13 @@ public class CartPage extends CommonPageL {
 
     public void clickOnSelecSizeButtonThenSelect(String arg0) {
         selectOption(sizeBtnLocator, arg0);
-
     }
 
     public void clickOnAddToCart() {
-
         click(addToCartBtnLocator);
     }
 
     public void waitUntilCartSidebarDisappearThenClickOnAddToCart() {
-//        waitUntilElementIsVisible(cartSideBarLocator);
-//        waitUntilElementDisapear(cartSideBarLocator);
         scrollToAndClick(addToCartBtnLocator);
 
     }
@@ -39,17 +34,14 @@ public class CartPage extends CommonPageL {
 
     }
 
-    public void input(String arg0) {
-        getDriver().findElement(By.cssSelector(quantityLocator)).clear();
-        insertIntoField(arg0,quantityLocator);
-        click(updateShopingBagBtnLocator);
-//
-        waitAboutSecond(20);
+    public void changeQuatityInCart(String qty) {
+        getDriver().findElement(By.cssSelector(".input-text.qty")).clear();
+        insertIntoField(qty,quantityLocator);
+        getDriver().findElement(By.xpath("//*[@id=\"form-validate\"]/div[2]/button[2]")).click();
 
     }
 
     public void theSubTotalPriceIs(String subTotalPrice) {
-//        waitAboutSecond(12);
         waitUntilElementIsVisible(subTotalPriceLocator);
         validatePrice(subTotalPriceLocator, subTotalPrice);
     }

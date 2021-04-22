@@ -1,8 +1,9 @@
 Feature: Manage Chain
 
   Background: login in admin page
-    Given Login "adminPage" with "account" and "passWord"
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
 
+@ManageChainTest01
   Scenario Outline: Add new chain
     Given Go to "manageChain"
     When Click on New Semi Product/Chain button
@@ -16,6 +17,7 @@ Feature: Manage Chain
       | Curb  With Bar    | 750 Gold - 18K | Yellow      | stockID3 | rawMaterialserialNo1 | successfulSaveChain |
       | Twist Chain       | 925 Silver     | White       | stockID4 | abcde                | errorSaveChain      |
 
+@ManageChainTest02
   Scenario Outline: Edit a chain (add plus chain weight)
     Given Go to "manageChain"
     When View detail of the chain has "stockID1"
@@ -28,6 +30,7 @@ Feature: Manage Chain
       |          |       | errorSaveChain      |
     # currently, still add successfully without prole fee and extra (on M1, they are required)
 
+@ManageChainTest03
   Scenario: Log usage when update chain code for an item
     Given Go to "updateProductionProcess"
     When Input "needAddChainCodeBarcode" to the barcode box

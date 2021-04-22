@@ -27,13 +27,13 @@ public class CommonPageSteps {
     public void waitAboutSeconds(int second)  {
         nia.waitAboutSeconds(second);
     }
-    @And("I click button has text (.*)")
+    @And("Click button by text \"([^\"]*)\"")
     public void iClickButtonHasText(String buttontext) {
         nia.iClickButtonHasText(buttontext);
     }
-    @And("I click button has id (.*)")
-    public void iClickButtonHasId(String buttontext) {
-        nia.clickButtonById(buttontext);
+    @And("Click button by id \"([^\"]*)\"")
+    public void iClickButtonHasId(String buttonId) {
+        nia.clickButtonById(buttonId);
     }
     @And("Wait until display button has text (.*)")
     public void waitUntilDisplayButtonHasText(String buttontext) {
@@ -60,17 +60,7 @@ public class CommonPageSteps {
         nia.insertIntoFieldById(text, id);
     }
 
-    @Then("^Successfully into (.*) front site$")
-    public void Successfully(String expectUrl)  {
-        System.out.println("Successfully");
-        nia.checkURl(expectUrl);
-    }
-    @Then("Show Messages : (.*)")
-    public void getMsgItem(String expectMsg){
-        System.out.println("show Messages: " + expectMsg );
-        nia.getMsgItem(expectMsg);
-    }
-    @And("Click button by class (.*)")
+    @And("Click button by class \"([^\"]*)\"")
     public void clickButtonByClass(String classButton) {
         nia.clickButtonByclass(classButton);
     }
@@ -78,16 +68,23 @@ public class CommonPageSteps {
     public void acceptCookie(){
         nia.acceptCookie();
     }
-
-
     @Then("Show error message for id (.*) blank: (.*)")
     public void showErrorMessageForBlankById(String id,String msg) {
         nia.showErrorMessageForBlankById(id,msg);
     }
-
     @Then("Show error message for class (.*) blank: (.*)")
     public void showErrorMessageForBlankByClass(String clname,String msg) {
         nia.showErrorMessageForBlankByClass(clname,msg);
+    }
+    @Then("Show Messages : (.*)")
+    public void getMsgItem(String expectMsg){
+        System.out.println("show Messages: " + expectMsg );
+        nia.getMsgItem(expectMsg);
+    }
+    @Then("^Successfully into (.*) front site$")
+    public void Successfully(String expectUrl)  {
+        System.out.println("Successfully into "+ expectUrl +" front site");
+        nia.checkURl(expectUrl);
     }
 
 

@@ -1,12 +1,15 @@
-@login
 Feature: Login to Backend
-  @login-01
-  Scenario: Login failed
-    Given go to the admin "adminPage"
-   When I login to admin with invalid username and password
-    Then I should not be on Admin Porfile pages
-@login-02
-Scenario: Login success
-  Given go to the admin "adminPage"
-  When I login to admin with valid username and password
-  Then I should  be on Admin Porfile pages
+  Background: Given go to the admin "adminPage"
+
+  @loginAdmin-01
+  Scenario: Login success
+    Given Login "adminPage" with "accountAdmin" and "passWordAdmin"
+    Then Successfully into ExpectDashboardPage front site
+  @loginAdmin-02
+  Scenario: Login with invalid account
+    Given Login "adminPage" with "wrongEmail" and "wrongPassword"
+    Then Show error message for class message-error blank: The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.
+  @loginAdmin-03
+  Scenario: Login with  wrong password
+    Given Login "adminPage" with "accountAdmin" and "wrongPassword"
+    Then Show error message for class message-error blank: The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.

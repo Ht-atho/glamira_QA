@@ -6,6 +6,6 @@ Feature: promotion campaign
     When Create a "percent" discount rule
     And Go to "itemDetail"
     And Click on "selectSizeButton" then select "selectSize"
-    And Click on "addToCart"
+    And Click button by id "addToCart"
     And Go to "theCart"
     Then The discount is "discountAmount"
